@@ -17,7 +17,14 @@ type Note struct {
 //binding 
 //Incoming API Body
 // called as DTO (Data Transfer Object)
-type CreateNodeRequest struct {
+type CreateNoteRequest struct {
+	Title string `json:"title" binding:"required,min=3,max=100"`
+	Content string `json:"content" binding:"required"`
+	Pinned bool `json:"pinned"` 
+}
+
+
+type UpdateNoteRequest struct {
 	Title string `json:"title" binding:"required,min=3,max=100"`
 	Content string `json:"content" binding:"required"`
 	Pinned bool `json:"pinned"` 
