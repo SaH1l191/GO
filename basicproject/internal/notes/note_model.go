@@ -1,0 +1,24 @@
+package notes
+
+import (
+	"time"
+
+	"go.mongodb.org/mongo-driver/bson/primitive"
+)
+//db model 
+type Note struct {
+	ID primitive.ObjectID `bson:"_id" json:"id"`
+	Title string `bson:"title" json:"title"`
+	Content string `bson:"content" json:"content"`
+	Pinned bool `bson:"pinned" json:"pinned"`
+	CreatedAt time.Time `bson:"createdAt" json:"createdAt"`
+	UpdatedAt time.Time `bson:"updatedAt" json:"updatedAt"`
+}
+//binding 
+//Incoming API Body
+// called as DTO (Data Transfer Object)
+type CreateNodeRequest struct {
+	Title string `json:"title" binding:"required,min=3,max=100"`
+	Content string `json:"content" binding:"required"`
+	Pinned bool `json:"pinned"` 
+}

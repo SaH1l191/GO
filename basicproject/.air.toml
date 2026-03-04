@@ -1,0 +1,17 @@
+root = "."
+# Temporary directory used by Air
+tmp_dir = "tmp"
+[build]
+# Command to build the project
+cmd = "go build -o ./tmp/api.exe ./cmd/api"
+# Binary that will be executed
+bin = "tmp/api.exe"
+# Delay (in milliseconds) before rebuilding after a file change
+delay = 100
+# Directories to ignore
+exclude_dir = ["tmp", "vendor"]
+# Ignore files matching these regex patterns
+exclude_regex = ["_test.go"]
+[log]
+# Show timestamps in logs
+time = true
