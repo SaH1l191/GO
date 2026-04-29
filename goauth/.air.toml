@@ -1,0 +1,17 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+# Add -ldflags="-H=windowsgui" so Windows accepts the exe
+cmd = "go build -ldflags='-H=windowsgui' -o ./tmp/api.exe ./cmd/api"
+# Binary that Air will run
+bin = "tmp/api.exe"
+# Delay before rebuilding
+delay = 100
+# Directories to ignore
+exclude_dir = ["tmp", "vendor"]
+# Files to ignore
+exclude_regex = ["_test.go"]
+
+[log]
+time = true

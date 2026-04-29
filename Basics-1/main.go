@@ -81,6 +81,16 @@ func main() {
 		fmt.Println("Iteration:", i)
 	}
 
+	//iota  : used to create enumerated constants
+	const  (
+		monday = iota
+		tuesday
+		wednesday
+		thursday
+		friday
+	)
+	fmt.Println(monday, tuesday, wednesday, thursday, friday)
+
 	//switch
 
 	day := "Monday"
@@ -93,6 +103,17 @@ func main() {
 	default:
 		fmt.Println("It's just another day.")
 	}
+
+	//defer : used to delay the execution of a function until the surrounding function returns
+	// delays execution of a function until the surrounding function returns. 
+	// Commonly used for: 
+	// closing files 
+	// unlocking mutex 
+	// cleanup tasks
+	//multiple defer statements are executed in LIFO order
+	// defer fmt.Println("1")
+    // defer fmt.Println("2")
+    // defer fmt.Println("3")
 
 	// arrays
 	var m = [3]int{1, 2, 3}
@@ -144,7 +165,7 @@ func main() {
 		fmt.Printf("Key: %s, Value: %d\n", key, value)
 	}
 
-	//functions
+	//functions : first class values : can be assigned to variables, passed as arguments, and returned from other functions
 	fmt.Println(add(2, 3))
 	sum, product := addProduct(2, 3)
 	fmt.Println("Sum:", sum, "Product:", product)
@@ -158,6 +179,9 @@ func main() {
 	res := func(n int) int {
 		return n * n
 	}
+	func() {
+        fmt.Println("Hello")
+    }()
 	fmt.Println("Square of 5:", res(5))
 
 	level, err := parseLevel("5")
@@ -173,7 +197,20 @@ func main() {
 	// 	fmt.Println("Error:", err)
 	// }
 
+	//closures  Closures capture variables from outer scope.
+	// func counter() func() int { 
+	// 	count := 0 
+	// 	return func() int {
+	// 		count++
+	// 		return count
+	// 	}
+	// }
 	
+	m1 := map[string]int{"a":1}
+	m2 := m1
+	m2["a"] = 100
+	// Both maps change because they reference the same data.
+
 
 }
 

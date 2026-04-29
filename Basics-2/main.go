@@ -52,5 +52,16 @@ func main() {
 	p2 := Person{name: "Bob"}
 	fmt.Println("Person 2:", p2) // age will be 0 by default 
  
+	// Value Receiver
+	// func (p Person) greet() {
+	// 	fmt.Println("Hello", p.Name)
+	// }
 
+	// Works on a copy.
+
+	// Pointer Receiver
+	// func (p *Person) birthday() {
+	// 	p.Age++
+	// }
+	
 }
