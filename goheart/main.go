@@ -256,7 +256,7 @@ func main(){
 
 	// ... wait for results
 	for a := 1; a <= numJobs; a++ {
-		fmt.Println("Result:", <-results)
+		fmt.Println("Result:", <-results) //Give me a value from results. If none exists yet, I'll wait.
 	}
 }
 //steps ; 
